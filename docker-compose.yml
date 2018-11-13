@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  backend:
+    tty: true
+    build:
+      context: dockerfile
+      dockerfile: backend
+    image: chuongnh/php:7.2-cli
+    labels:
+      kompose.service.type: api
+    volumes:
+      - ./src/backend/:/var/www/html/:cached
+      - ./data/composer/:/root/.composer/:cached
+    entrypoint: php -S 0.0.0.0:9000 -t .
+    ports:
+     - 9000:9000
+    working_dir: /var/www/html/
+  frontend:
+    tty: true
+    build:
+      context: dockerfile
+      dockerfile: frontend
+    image: chuongnh/node:yarn-npm
+    labels:
+      kompose.service.type: client
+    volumes:
+      - ./src/frontend/:/var/www/html/:cached
+      - ./data/yarn/:/root/yarn/:cached
+    entrypoint: yarn start
+    ports:
+     - 8000:8000
+    working_dir: /var/www/html/

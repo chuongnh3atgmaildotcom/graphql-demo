@@ -1,0 +1,6 @@
+FROM node:10.13.0-alpine
+MAINTAINER Chuong Nguyen (chuongnh3@gmail.com)
+RUN apk add bash vim git
+RUN yarn config set cache-folder /root/yarn/cache
+# CMD [ "npm", "start" ]
+# EXPOSE 3000:80

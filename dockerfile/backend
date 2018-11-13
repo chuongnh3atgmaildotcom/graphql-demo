@@ -1,0 +1,8 @@
+FROM php:7.2-cli-alpine3.8
+MAINTAINER Chuong Nguyen (chuongnh3@gmail.com)
+RUN apk update && apk add bash vim git
+COPY utils/composer.phar /usr/local/bin/composer
+RUN chmod +x /usr/local/bin/composer
+EXPOSE 9000:9000
+ENTRYPOINT [“php”,”-S”,”0.0.0.0:9000”]
+# CMD [ "npm", "start" ]

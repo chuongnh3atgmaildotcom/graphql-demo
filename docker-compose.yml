@@ -29,5 +29,7 @@ services:
       - ./data/yarn/:/root/yarn/:cached
     entrypoint: yarn start
     ports:
-     - 8000:8000
+      - 8000:8000
+    environment:
+      PORT: 8000
     working_dir: /var/www/html/

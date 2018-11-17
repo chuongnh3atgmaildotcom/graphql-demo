@@ -32,6 +32,7 @@
     "mocha": "--full-trace --require resources/mocha-bootload src/**/*-test.js"
   },
   "scripts": {
+    "start": "cd example && yarn start",
     "build": "bash ./resources/build.sh",
     "check": "flow check",
     "dev": "babel-node test/server.js",

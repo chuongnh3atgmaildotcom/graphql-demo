@@ -12,9 +12,9 @@ services:
     volumes:
       - ./src/backend/:/var/www/html/:cached
       - ./data/composer/:/root/.composer/:cached
-    entrypoint: php -S 0.0.0.0:9000 -t .
+    entrypoint: php -S 0.0.0.0:9100 -t .
     ports:
-     - 9000:9000
+     - 9100:9100
     working_dir: /var/www/html/
   frontend:
     tty: true
